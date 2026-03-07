@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Protech Building | Our Products</title>
+    <link href="resources/stylesheet/stylesheet.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div id="header">
+            <div id="logo">
+                <img src="resources/images/Logo.png" alt="Protech Logo" />
+            </div>
+            <div id="nav-bar">
+                <br />
+                <ul>
+                    <li><a href="HomePage.html"> Home | </a></li>
+                    <li><a href="OurProducts.html"> Our Products | </a></li>
+                    <li><a href="ContactUs.html"> Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="contact-us">
+            <div class="contact-form">
+                <form method="get" onsubmit="return false">
+                    <h1>CONTACT US</h1>
+                    <label for="name">Name</label><br />
+                    <input type="text" id="txtName" name="name" placeholder="Your full name..">
+                    <br />
+                    <label for="name">Email</label><br />
+                    <input type="text" id="txtEmail" name="email" placeholder="Your email address..">
+                    <br />
+                    <label for="reason">Reason for Inquiry</label><br />
+                    <select id="txtReason" name="reason">
+                        <option value="building">Building</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="tools">Tools</option>
+                    </select>
+
+                    <br />
+                    <label for="message">Message</label><br />
+                    <textarea id="txtMessage" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                    <br /><br />
+                    <button id="btnSubmit" onclick="submitForm()">Submit</button>
+
+                </form>
+            </div>
+            <div id="contact-info">
+                <h1>WHERE TO FIND US</h1>
+                <br />
+                <p>Contact Details:</p>
+                <br />
+                <p>Western Cape: +27 21 552 7733</p>
+                <br />
+                <p>Gauteng: +2779 923 7592</p>
+                <br />
+                <p>
+                    14 Central Park
+                    Platinum Crescent, Montague Gardens
+                    Cape Town, South Africa
+                    7441
+                </p>
+
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            Protech Building Products | Created by Kauthar Abrahams
+        </p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            /* Declare Variables */
+            let name;
+            let email;
+            let reason;
+            let message;
+
+            /* Load Inputs */
+            name = document.getElementById('txtName').value;
+            email = document.getElementById('txtEmail').value;
+            reason = document.getElementById('txtReason').value;
+            message = document.getElementById('txtMessage').value;
+
+            if (validateInput(name, email, message) == true) {
+
+                /* Display Output */
+                document.getElementById('txtName').innerHTML = name.value;
+                document.getElementById('txtEmail').innerHTML = email.value;
+                document.getElementById('txtReason').innerHTML = reason.value;
+                document.getElementById('txtMessage').innerHTML = message.value;
+                alert("Your request has been sent. Thank you for contacting us.");
+            } else {
+                clearInputs();
+            }
+        }
+
+        /* Validate Inputs */
+        function validateInput(name, email, message) {
+
+            if (name == "") {
+                alert("Please enter your full name!");
+                return false;
+            } else if (email == "") {
+                alert("Please enter email");
+                return false;
+            } else if (massage == "") {
+                alert("Please enter a message");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        // Clear inputs
+        function clearInputs() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
